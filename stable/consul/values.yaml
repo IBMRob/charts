@@ -40,6 +40,10 @@ DisableHostNodeId: false
 ## Encrypt Gossip traffic
 EncryptGossip: true
 
+## Encryption Key. By default this is a random 24 char string.
+## Must be a base64 encoded when set manually
+EncryptKey: ""
+
 ## StorageClass name for use with Persistent Volume Claim (PVC) using beta notations
 # StorageClass:
 

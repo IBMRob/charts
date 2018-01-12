@@ -4,7 +4,12 @@ metadata:
   name: {{ template "consul.fullname" . }}-gossip-key
 type: Opaque
 data:
-  gossip-key: {{ randAlphaNum 24 | b64enc }}
+  {{- if (eq "" .Values.EncryptKey) }}
+    gossip-key: {{ randAlphaNum 24 | b64enc }}
+  {{- else }}
+    gossip-key: {{ .Values.EncryptKey }}
+  {{- end }}
+
 ---
 {{- if .Values.uiService.enabled }}
 apiVersion: v1
